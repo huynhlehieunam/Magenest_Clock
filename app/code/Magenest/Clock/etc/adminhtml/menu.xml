@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magenest_Clock::clock_parent"
+             title="Clock"
+             translate="title"
+             module="Magenest_Clock"
+             sortOrder="55"
+             dependsOnModule="Magenest_Clock"
+             resource="Magenest_Clock::parent"/>
+        <add id="Magenest_Clock::clock_management"
+             title="Clock Management"
+             module="Magenest_Clock"
+             action="clock/clock/manage/"
+             sortOrder="56"
+             parent="Magenest_Clock::clock_parent"
+             resource="Magenest_Clock::clock_management"
+        />
+        <add id="Magenest_Clock::clock_configuration"
+             title="Clock Configuration"
+             module="Magenest_Clock"
+             action="admin/system_config/edit/section/clock_configuration/"
+             sortOrder="57"
+             parent="Magenest_Clock::clock_parent"
+             resource="Magenest_Clock::clock_configuration"
+        />
+    </menu>
+</config>
