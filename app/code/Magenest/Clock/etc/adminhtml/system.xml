@@ -22,6 +22,10 @@
                     <label>Color Clock</label>
                     <frontend_model>Magenest\Clock\Block\Adminhtml\Form\Field\Color</frontend_model>
                 </field>
+                <field id="text_color" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Text Color</label>
+                    <frontend_model>Magenest\Clock\Block\Adminhtml\Form\Field\Color</frontend_model>
+                </field>
             </group>
         </section>
     </system>

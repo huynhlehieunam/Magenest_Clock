@@ -1,0 +1,16 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="clock_configuration_general_color" type="Magenest\Clock\Block\Adminhtml\Form\Field\Color">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <argument name="id" xsi:type="string">clock_configuration_general_color</argument>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="clock_configuration_general_text_color" type="Magenest\Clock\Block\Adminhtml\Form\Field\Color">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <argument name="id" xsi:type="string">clock_configuration_general_text_color</argument>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>
