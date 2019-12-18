@@ -1,0 +1,20 @@
+<div  id="clock-area" style="
+    width: 200px;
+    margin: auto;
+    text-align: center;
+    background-color: <?= $block->getBackgroundColor()?>;
+    color: <?= $block->getTextColor()?>;
+    ">
+    10:10
+</div>
+<script>
+    require(['jquery'],function($){
+        function plusOneSecond(){
+            let now = new Date();
+            $("#clock-area").html(now.toString());
+        }
+        $("document").ready(function(){
+            setInterval(plusOneSecond,1000);
+        })
+    })
+</script>

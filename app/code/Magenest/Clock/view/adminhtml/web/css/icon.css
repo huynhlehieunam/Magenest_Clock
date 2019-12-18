@@ -11,7 +11,7 @@
 
 .admin__menu .level-0.item-clock-parent > a::before {
     font-family: 'ClockFont', serif !important;
-    content: '\0042';
+    content: '\0041';
     padding-top: 0.1rem;
     font-size: 2.4rem;
     position: relative;
