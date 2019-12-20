@@ -8,6 +8,7 @@
                 <size>0</size>
                 <color>#fff</color>
                 <text_color>#000</text_color>
+                <clock_type>{"_1576807704475_475":{"customer_group":"0","clock_type":"1"},"_1576807706148_148":{"customer_group":"1","clock_type":"2"},"_1576807710140_140":{"customer_group":"2","clock_type":"3"},"_1576807714260_260":{"customer_group":"3","clock_type":"1"}}</clock_type>
             </general>
         </clock_configuration>
     </default>

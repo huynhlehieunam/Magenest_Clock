@@ -1,12 +1,22 @@
-<div  id="clock-area" style="
-    width: 200px;
-    margin: auto;
-    text-align: center;
-    background-color: <?= $block->getBackgroundColor()?>;
-    color: <?= $block->getTextColor()?>;
-    ">
-    10:10
+<div  id="clock-area" >
+    Fri Dec 20 2019 08:04:59 GMT+0700 (Indochina Time)
 </div>
+<style>
+    #clock-area{
+        width: 200px;
+        margin: auto;
+        text-align: center;
+        background-color: <?= $block->getBackgroundColor()?>;
+        color: <?= $block->getTextColor()?>;
+        padding: 5px 10px;
+        border: 2px yellow solid;
+    }
+    @media (max-width: 576px) {
+        #clock-area{
+            width: 100%;
+        }
+    }
+</style>
 <script>
     require(['jquery'],function($){
         function plusOneSecond(){

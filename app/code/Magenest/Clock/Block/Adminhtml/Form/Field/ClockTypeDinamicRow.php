@@ -6,6 +6,7 @@ class ClockTypeDinamicRow extends \Magento\Config\Block\System\Config\Form\Field
 {
     protected $_clockType;
     protected $_customerGroup;
+    protected $_template = "Magenest_Clock::system/config/form/field/array.phtml";
 
     /**
      * Get activation options.
@@ -65,8 +66,7 @@ class ClockTypeDinamicRow extends \Magento\Config\Block\System\Config\Form\Field
             ]
         );
 
-        $this->_addAfter = false;
-        $this->_addButtonLabel = __('Add');
+       $this->_addAfter = false;
     }
 
     /**
@@ -78,10 +78,15 @@ class ClockTypeDinamicRow extends \Magento\Config\Block\System\Config\Form\Field
     protected function _prepareArrayRow(\Magento\Framework\DataObject $row)
     {
         $options = [];
-        $customAttribute = $row->getData('customer_group');
+        $customerGroup = $row->getData('customer_group');
 
-        $key = 'option_' . $this->_getCustomerGroupRenderer()->calcOptionHash($customAttribute);
+        $key = 'option_' . $this->_getCustomerGroupRenderer()->calcOptionHash($customerGroup);
         $options[$key] = 'selected="selected"';
+
+        $clockType = $row->getData('clock_type');
+        $key = 'option_' . $this->_getClockTypeRenderer()->calcOptionHash($clockType);
+        $options[$key] = 'selected="selected"';
+
         $row->setData('option_extra_attrs', $options);
     }
 }
