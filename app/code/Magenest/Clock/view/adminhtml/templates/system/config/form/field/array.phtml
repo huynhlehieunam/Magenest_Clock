@@ -18,18 +18,8 @@ $_colspan = $block->isAddAfter() ? 2 : 1;
                 <?php foreach ($block->getColumns() as $columnName => $column) : ?>
                     <th><?= $block->escapeHtml($column['label']) ?></th>
                 <?php endforeach; ?>
-                <th class="col-actions" colspan="<?= (int)$_colspan ?>"><?= $block->escapeHtml(__('Action')) ?></th>
             </tr>
             </thead>
-            <tfoot>
-            <tr>
-                <td colspan="<?= count($block->getColumns())+$_colspan ?>" class="col-actions-add">
-                    <button id="addToEndBtn<?= $block->escapeHtmlAttr($_htmlId) ?>" class="action-add" disabled title="<?= $block->escapeHtmlAttr(__('Add')) ?>" type="button">
-                        <span><?= $block->escapeHtml($block->getAddButtonLabel()) ?></span>
-                    </button>
-                </td>
-            </tr>
-            </tfoot>
             <tbody id="addRow<?= $block->escapeHtmlAttr($_htmlId) ?>"></tbody>
         </table>
     </div>
@@ -58,10 +48,6 @@ $_colspan = $block->isAddAfter() ? 2 : 1;
                     + '<\/span><\/button><\/td>'
                     <?php endif; ?>
 
-                    + '<td class="col-actions"><button '
-                    + 'onclick="arrayRow<?= $block->escapeJs($_htmlId) ?>.del(\'<%- _id %>\')" '
-                    + 'class="action-delete" type="button" disabled="true">'
-                    + '<span><?= $block->escapeJs($block->escapeHtml(__('Delete'))) ?><\/span><\/button><\/td>'
                     + '<\/tr>'
                 ),
 
@@ -111,13 +97,13 @@ $_colspan = $block->isAddAfter() ? 2 : 1;
                 }
             }
 
-            // bind add action to "Add" button in last row
-            Event.observe('addToEndBtn<?= $block->escapeJs($_htmlId) ?>',
-                'click',
-                arrayRow<?= $block->escapeJs($_htmlId) ?>.add.bind(
-                    arrayRow<?= $block->escapeJs($_htmlId) ?>, false, false
-                )
-            );
+            //// bind add action to "Add" button in last row
+            //Event.observe('addToEndBtn<?//= $block->escapeJs($_htmlId) ?>//',
+            //    'click',
+            //    arrayRow<?//= $block->escapeJs($_htmlId) ?>//.add.bind(
+            //        arrayRow<?//= $block->escapeJs($_htmlId) ?>//, false, false
+            //    )
+            //);
 
             // add existing rows
             <?php

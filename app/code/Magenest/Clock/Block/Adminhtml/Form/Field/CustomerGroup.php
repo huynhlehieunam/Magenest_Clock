@@ -43,7 +43,7 @@ class CustomerGroup extends \Magento\Framework\View\Element\Html\Select
     public function _toHtml()
     {
         if ($this->getData('is_disabled')===true){
-            $this->setExtraParams("readonly");
+            $this->setExtraParams("disabled");
         }
         if (!$this->getOptions()) {
             $attributes = $this->_customerGroup->toOptionArray();
