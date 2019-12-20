@@ -37,7 +37,7 @@ class ClockTypeDinamicRow extends \Magento\Config\Block\System\Config\Form\Field
             $this->_customerGroup = $this->getLayout()->createBlock(
                 '\Magenest\Clock\Block\Adminhtml\Form\Field\CustomerGroup',
                 '',
-                ['data' => ['is_render_to_js_template' => true]]
+                ['data' => ['is_render_to_js_template' => true,'is_disabled'=>true]]
             );
         }
 
