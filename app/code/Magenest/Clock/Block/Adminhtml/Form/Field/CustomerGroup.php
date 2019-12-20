@@ -23,7 +23,6 @@ class CustomerGroup extends \Magento\Framework\View\Element\Html\Select
         array $data = []
     ) {
         parent::__construct($context, $data);
-
         $this->_customerGroup = $customerGroup;
     }
 
@@ -43,6 +42,7 @@ class CustomerGroup extends \Magento\Framework\View\Element\Html\Select
      */
     public function _toHtml()
     {
+        $this->setExtraParams("readonly");
         if (!$this->getOptions()) {
             $attributes = $this->_customerGroup->toOptionArray();
 

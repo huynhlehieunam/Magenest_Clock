@@ -28,11 +28,17 @@ class Color extends Field
         return $inputHtml;
     }
 
+    protected function getConfigValue($path){
+        return $this->_scopeConfig->getValue($path);
+    }
+
     private function renderInput(AbstractElement $element)
     {
         $inputId = $element->getId();
         $name = $element->getData('name');
-        $value = $element->getData('value');
+        $fieldConfig = $element->getData('field_config');
+        $path = $fieldConfig['path']."/".$fieldConfig['id'];
+        $value = $this->getConfigValue($path);
         return <<<HTML
     <input type="color" id="$inputId" name="$name" value="$value">
 HTML;
