@@ -243,7 +243,9 @@ return [
         'Klarna_Kp' => 1,
         'Magento_PaypalReCaptcha' => 1,
         'MSP_TwoFactorAuth' => 1,
-        'Magenest_Clock' => 1,
+        'Magenest_Clock' => 0,
+        'Magenest_CustomEav' => 1,
+        'Magenest_ProductCustomization' => 0,
         'Temando_Shipping' => 1,
         'Vertex_Tax' => 1,
         'Yotpo_Yotpo' => 1
