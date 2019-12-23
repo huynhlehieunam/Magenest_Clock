@@ -1,0 +1,26 @@
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="magenest">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string">Magenest Custom Fields</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="dataScope" xsi:type="string">data.magenest</item>
+                <item name="sortOrder" xsi:type="number">1</item>
+            </item>
+        </argument>
+        <field name="monthly_date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magenest_ProductCustomization/js/form/date</item>
+                    <item name="label" xsi:type="string" translate="true">Monthly Date</item>
+                    <item name="dataScope" xsi:type="string">monthly_date</item>
+                    <item name="sortOrder" xsi:type="number">20</item>
+                    <item name="componentType" xsi:type="string">field</item>
+                    <item name="dataType" xsi:type="string">datetime</item>
+                    <item name="formElement" xsi:type="string">date</item>
+                    <item name="scopeLabel" xsi:type="string">[store view]</item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>
