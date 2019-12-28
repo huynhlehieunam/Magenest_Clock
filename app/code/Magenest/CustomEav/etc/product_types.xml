@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Catalog:etc/product_types.xsd">
+    <type name="custom_virtual" label="Custom Virtual Product" modelInstance="Magenest\CustomEav\Model\Product\Type\CustomVirtualType" composite="false" isQty="true" canUseQtyDecimals="false" sortOrder="60">
+        <priceModel instance="Magenest\CustomEav\Model\Product\Price" />
+        <customAttributes>
+            <attribute name="refundable" value="false"/>
+            <attribute name="is_real_product" value="false"/>
+        </customAttributes>
+    </type>
+    <composableTypes>
+        <type name="virtual" />
+    </composableTypes>
+</config>

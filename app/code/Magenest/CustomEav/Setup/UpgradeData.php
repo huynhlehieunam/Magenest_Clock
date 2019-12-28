@@ -27,8 +27,15 @@ class UpgradeData implements UpgradeDataInterface{
     public function upgrade(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
         $eavSetup = $this->eavSetupFactory->create(['setup' => $setup]);
-        $this->addSelectAttribute($eavSetup);
-        $this->addVarcharAttribute($eavSetup);
+        if(version_compare($context->getVersion(),'1.1.0','<')){
+            $this->addSelectAttribute($eavSetup);
+        }
+        if(version_compare($context->getVersion(),'1.1.1','<')){
+            $this->addVarcharAttribute($eavSetup);
+        }
+        if(version_compare($context->getVersion(),'1.1.2','<')){
+            $this->applyPriceToNewProductType($eavSetup);
+        }
     }
 
     private function addSelectAttribute($eavSetup)
@@ -57,7 +64,9 @@ class UpgradeData implements UpgradeDataInterface{
                     'visible_on_front' => false,
                     'used_in_product_listing' => true,
                     'unique' => false,
-                    'apply_to' => ''
+                    'apply_to' => '',
+                    'is_used_in_grid'       => true,
+                    'is_visible_in_grid'    => true,
                 ]
             );
         } catch (LocalizedException $e) {
@@ -93,13 +102,45 @@ class UpgradeData implements UpgradeDataInterface{
                     'visible_on_front' => false,
                     'used_in_product_listing' => true,
                     'unique' => false,
-                    'apply_to' => ''
+                    'apply_to' => '',
+                    'is_used_in_grid'       => true,
+                    'is_visible_in_grid'    => true,
                 ]
             );
         } catch (LocalizedException $e) {
             echo $e->getMessage();
         } catch (\Zend_Validate_Exception $e) {
             echo $e->getMessage();
+        }
+    }
+
+    private function applyPriceToNewProductType($eavSetup)
+    {
+        $fieldList = [
+            'price',
+            'special_price',
+            'special_from_date',
+            'special_to_date',
+            'minimal_price',
+            'cost',
+            'tier_price',
+        ];
+
+        // make these attributes applicable to virtual products
+        foreach ($fieldList as $field) {
+            $applyTo = explode(
+                ',',
+                $eavSetup->getAttribute(\Magento\Catalog\Model\Product::ENTITY, $field, 'apply_to')
+            );
+            if (!in_array('custom_virtual', $applyTo)) {
+                $applyTo[] = 'custom_virtual';
+                $eavSetup->updateAttribute(
+                    \Magento\Catalog\Model\Product::ENTITY,
+                    $field,
+                    'apply_to',
+                    implode(',', $applyTo)
+                );
+            }
         }
     }
 }
